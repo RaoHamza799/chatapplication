@@ -1,14 +1,19 @@
-<h4 class="ui center aligned large icon header">
-  <i class="circular red wechat icon"></i>
+
+
+
+
+<h4 class="ui center orange aligned large icon header">
+  <i class="circular orange wechat icon"></i>
   Say Hello!
 </h4>
+
 
  
 <div class="ui two column grid ">
    <div class="twelve wide column">
    <div class="ui fluid raised card chatbox">
-   <div class="content">
-    <div class="ui  feed"  id="message-container"  >
+   <div class="content" id="messages">
+    <div class="ui  feed"  id="message-container" >
                <%= render @messages  %>
        </div>
       </div>
