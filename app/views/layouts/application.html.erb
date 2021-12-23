@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AlphaBlog</title>
+  
+    <title>Chats Rooms</title>    
+    <%=favicon_link_tag%>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,9 +12,51 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body > 
 
-   <%= render 'layouts/messages' %>
+  <div class="ui small inverted menu">
+    <div class="ui container">
+    
+    <a><%= link_to "ChatRoom", root_path, class: "item" %></a>
+
+     <a class="item">
+       Messages
+     </a>
+        
+
+
+
+  
+     <div class="right menu">
+    
+      <div class="dropdown show">
+      <a  class="ui inverted red  button " id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" >
+        Acount
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+     <%if  logged_in? %>
+      <a><%= link_to "Logout", logout_path, method: :delete ,class: "dropdown-item" %></a>
+    <%else%>
+      <a><%= link_to "Login", login_path, class: "dropdown-item" %></a>
+    <%end%> 
+       <a class="dropdown-item" href="#">Another action</a>
+       <a class="dropdown-item" href="#">Something else here</a>
+     </div>
+     </div>
+        <%if  !logged_in? %>
+       <div class="item">
+        <div class="negative ui button">LOGIN</div>
+      </div>
+      <%end%>
+
+     </div>
+     </div>
+    </div>
+<div class="container">
+     <%= render 'layouts/messages' %>
     <%= yield %>
+</div>
+
+
   </body>
 </html>
